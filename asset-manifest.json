@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://jlumbroso.github.io/supabase-react-example/static/css/main.d9cf6f27.chunk.css",
-    "main.js": "https://jlumbroso.github.io/supabase-react-example/static/js/main.2d77bbdb.chunk.js",
-    "main.js.map": "https://jlumbroso.github.io/supabase-react-example/static/js/main.2d77bbdb.chunk.js.map",
+    "main.js": "https://jlumbroso.github.io/supabase-react-example/static/js/main.a5310d10.chunk.js",
+    "main.js.map": "https://jlumbroso.github.io/supabase-react-example/static/js/main.a5310d10.chunk.js.map",
     "runtime-main.js": "https://jlumbroso.github.io/supabase-react-example/static/js/runtime-main.50b626d1.js",
     "runtime-main.js.map": "https://jlumbroso.github.io/supabase-react-example/static/js/runtime-main.50b626d1.js.map",
     "static/js/2.ab3d94a3.chunk.js": "https://jlumbroso.github.io/supabase-react-example/static/js/2.ab3d94a3.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.50b626d1.js",
     "static/js/2.ab3d94a3.chunk.js",
     "static/css/main.d9cf6f27.chunk.css",
-    "static/js/main.2d77bbdb.chunk.js"
+    "static/js/main.a5310d10.chunk.js"
   ]
 }
