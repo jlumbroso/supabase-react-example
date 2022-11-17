@@ -8,6 +8,7 @@ This demonstrates how to use:
 - User avatar images using Supabase [Storage](https://supabase.com/storage).
 - Public profiles restricted with [Policies](https://supabase.com/docs/guides/auth#policies).
 - Frontend using [Create React App](https://reactjs.org/docs/create-a-new-react-app.html).
+- Hosting using GitHub Actions + GitHub Pages
 
 ## Technologies used
 
@@ -16,6 +17,9 @@ This demonstrates how to use:
   - [Supabase.js](https://supabase.com/docs/library/getting-started) for user management and realtime data syncing.
 - Backend:
   - [app.supabase.com](https://app.supabase.com/): hosted Postgres database with restful API for usage with Supabase.js.
+- Deployment:
+  - The code is compiled by [GitHub Actions]() using the continuous integration in `.github/workflows`.
+  - The website is hosted on [GitHub Pages](), in the version available in the branch `gh-pages`.
 
 ## Build from scratch
 
