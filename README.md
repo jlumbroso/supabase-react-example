@@ -1,6 +1,6 @@
-# Supabase Create React App User Management
+# Supabase Create React App User Management Template
 
-This example will set you up for a very common situation: users can sign up with a magic link and then update their account with public profile information, including a profile image.
+This example will set you up for a very common situation: Users can sign up with a magic link and then update their account with public profile information, including a profile image.
 
 This demonstrates how to use:
 
@@ -8,7 +8,9 @@ This demonstrates how to use:
 - User avatar images using Supabase [Storage](https://supabase.com/storage).
 - Public profiles restricted with [Policies](https://supabase.com/docs/guides/auth#policies).
 - Frontend using [Create React App](https://reactjs.org/docs/create-a-new-react-app.html).
-- Hosting using GitHub Actions + GitHub Pages
+- Deployment using [GitHub Actions](https://docs.github.com/en/actions) + hosting using [GitHub Pages](https://pages.github.com/).
+
+_This example is originally [from the Supabase developers](https://github.com/supabase/supabase/tree/master/examples/user-management/react-user-management), and it was adapted by [**@jlumbroso**](https://github.com/jlumbroso) to be compiled through GitHub Actions and deployed to GitHub Pages, so that it could be made into a [GitHub Template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository)._
 
 ## Technologies used
 
@@ -18,20 +20,26 @@ This demonstrates how to use:
 - Backend:
   - [app.supabase.com](https://app.supabase.com/): hosted Postgres database with restful API for usage with Supabase.js.
 - Deployment:
-  - The code is compiled by [GitHub Actions]() using the continuous integration in `.github/workflows`.
-  - The website is hosted on [GitHub Pages](), in the version available in the branch `gh-pages`.
+  - The code is compiled by [GitHub Actions](https://docs.github.com/en/actions) using the continuous integration in `.github/workflows`.
+  - The website is hosted on [GitHub Pages](https://pages.github.com/), in the version available in the branch `gh-pages`.
 
-## Build from scratch
+## Fork your own copy of this project
 
-### 1. Create new project
+### 1. Create your own instance of the repository
+
+The repository `jlumbroso/supabase-react-example` is a template, and you can [create your own repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) from it.
+
+Note that the initial repository will contain this project, _but because the secrets are not configured yet, the deployment will either fail outright, or result in a broken website_. This is to be expected and will be resolved in the following steps.
+
+### 2. Create a new Supabase project
 
 Sign up to Supabase - [https://app.supabase.com](https://app.supabase.com) and create a new project. Wait for your database to start.
 
-### 2. Run "User Management" Quickstart
+### 3. Run "User Management" Quickstart
 
 Once your database has started, head over to your project's `SQL Editor` and run the "User Management Starter" quickstart. On the `SQL editor` page, scroll down until you see `User Management Starter: Sets up a public Profiles table which you can access with your API`. Click that, then click `RUN` to execute that query and create a new `profiles` table. When that's finished, head over to the `Table Editor` and see your new `profiles` table.
 
-### 3. Get the URL and Key
+### 4. Get the URL and Key
 
 Go to the Project Settings (the cog icon), open the API tab, and find your API URL and `anon` key, you'll need these in the next step.
 
@@ -41,20 +49,59 @@ The `anon` key is your client-side API key. It allows "anonymous access" to your
 
 **_NOTE_**: The `service_role` key has full access to your data, bypassing any security policies. These keys have to be kept secret and are meant to be used in server environments and never on a client or browser.
 
-### 4. Env vars
+### 5. Configure the secrets (and environment variables)
 
-Create a file in this folder `.env.local`
+In the previous steps, you created a Supabase project with a database, and you created a `profiles` table. You also got the URL and key for your project. These are now going to be provided as configuration to the project.
+
+For cloud deployment: Create [encrypted secrets for your repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository), using the following names:
+
+- `REACT_APP_SUPABASE_URL` for the URL of your project.
+- `REACT_APP_SUPABASE_ANON_KEY` for the `anon` key of your project.
+
+### 6. Turn on GitHub Pages
+
+In the repository settings, go to the `Pages` section, and [select the `gh-pages` branch as the source for the GitHub Pages website](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch). This will be the branch where the compiled code will be deployed.
+
+### 7. Trigger the first deployment
+
+Now that the secrets are configured, the first deployment will be triggered. This will take a few minutes, and you can check the progress in the `Actions` tab of the repository.
+
+## Local development
+
+If you ever want to locally develop this project, you can do so by following these steps.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/<your username>/<your repository name>
+```
+
+### 2. Create the `.env` file
+
+Inside the cloned repository, create a file `.env.local` with the following:
 
 ```
 REACT_APP_SUPABASE_URL=
 REACT_APP_SUPABASE_ANON_KEY=
 ```
 
-Populate this file with your URL and Key.
+where you complete the values with the URL and key of your project.
 
-### 5. Run the application
+### 3. Install the dependencies of the project
 
-Run the application: `npm run start`. Open your browser to `https://localhost:3000/` and you are ready to go 🚀.
+This step will require that you have [some recent version of Node.js locally installed](https://nodejs.org/en/).
+
+```bash
+npm install
+```
+
+### 4. Run the project
+
+```bash
+npm run start
+```
+
+then open your browser to `https://localhost:3000/` and you are ready to go 🚀.
 
 ## Supabase details
 
@@ -109,5 +156,6 @@ create policy "Anyone can upload an avatar."
 ## Authors
 
 - [Supabase](https://supabase.com)
+- [@jlumbroso](https://www.github.com/jlumbroso)
 
 Supabase is open source. We'd love for you to follow along and get involved at https://github.com/supabase/supabase
